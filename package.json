@@ -1,6 +1,6 @@
 {
   "name": "@persistlyapp/phaser",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Phaser adapter for Persistly cloud saves.",
   "license": "Apache-2.0",
   "type": "module",

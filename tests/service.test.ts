@@ -137,7 +137,7 @@ test("start configures the core SDK with Phaser diagnostics", async () => {
       platform: "browser",
       engineVersion: "3.90.0",
       sdkName: "phaser",
-      sdkVersion: "0.1.0",
+      sdkVersion: "1.0.0",
     });
   } finally {
     PersistlyGameSaves.configure = originalConfigure;
