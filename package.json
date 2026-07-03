@@ -1,0 +1,66 @@
+{
+  "name": "@persistlyapp/phaser",
+  "version": "0.1.0",
+  "description": "Phaser adapter for Persistly cloud saves.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "homepage": "https://docs.persistly.app/sdk/phaser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Persistly/persistly-sdk-phaser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Persistly/persistly-sdk-phaser/issues"
+  },
+  "keywords": [
+    "persistly",
+    "phaser",
+    "game saves",
+    "cloud saves",
+    "save sync"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "SECURITY.md",
+    "examples",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "phaser": "^3.80.0"
+  },
+  "dependencies": {
+    "@persistlyapp/sdk": "^1.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "phaser": "^3.80.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "clean": "node -e \"import('node:fs').then(({ rmSync }) => rmSync('dist', { recursive: true, force: true }))\"",
+    "build": "pnpm clean && tsc -p tsconfig.build.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test \"tests/*.test.ts\"",
+    "test:package": "pnpm build && node scripts/package-consumer-smoke.mjs",
+    "prepack": "pnpm test && pnpm build && node scripts/package-consumer-smoke.mjs"
+  }
+}
